@@ -1,24 +1,18 @@
-# todo-vue
+<h1 align="center">ToDo</h1>
 
-## Project setup
-```
-yarn install
-```
+<h2>Projeto</h2>
 
-### Compiles and hot-reloads for development
+Trata-se de um sistema de lista de tarefas com objetivo de estudar Vue.
+
+<h2>Rodar o projeto</h2>
+
 ```
 yarn serve
 ```
+<h2>Autor</h2>
 
-### Compiles and minifies for production
-```
-yarn build
-```
+* [Patrick Mota](https://github.com/Patrick-Wilker) - Desenvolvimento e documentação
 
-### Lints and fixes files
-```
-yarn lint
-```
+<h2>Licença</h2>
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Esse projeto está sobre licença MIT.

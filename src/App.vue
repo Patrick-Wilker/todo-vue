@@ -8,7 +8,7 @@
         </form>   
 
         <ul class="lista">
-          <Todo v-for="t in todos" :key="t.id" :todo="t"/>
+          <Todo v-for="t in todos" :key="t.id" @toggle="toggleTodo" @remove="removeTodo" :todo="t"/>
         </ul>
     </main>
   </div>
@@ -27,6 +27,21 @@ export default {
       todo.id = Date.now();
       this.todos.push(todo);
       this.todo = {checked: false};
+    },
+
+    toggleTodo(todo){
+      const index = this.todos.findIndex(item => item.id === todo.id)
+      if(index > -1){
+        const checked = !this.todos[index].checked
+        this.$set(this.todos, index, {...this.todos[index], checked})
+      }
+    },
+
+    removeTodo(todo){
+      const index = this.todos.findIndex(item => item.id === todo.id)
+      if(index > -1){
+        this.$delete(this.todos, index)
+      }
     }
   }
 }
@@ -90,35 +105,4 @@ main ul{
     padding: 0;
 }
 
-main ul li+li{
-    margin-top: 10px;
-}
-
-main ul li{
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
-    background: rgba(0, 113, 227, 0.1);
-    border-radius: 4px;
-    padding: 5px 15px;
-}
-.buttons{
-  min-width: 100px;
-}
-.buttons button{
-  background: none;
-  border: 0;
-  font-weight: bold;
-}
-.buttons .concluido{
-  color: blue;
-  cursor: pointer;
-
-}
-.buttons .remover{
-  color: red;
-  cursor: pointer;
-}
 </style>

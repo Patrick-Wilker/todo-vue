@@ -8,23 +8,17 @@
         </form>   
 
         <ul class="lista">
-          <li v-for="t in todos" :key="t.id">
-            {{t.description}}
-
-            <div class="buttons">
-                <button class="concluido">Concluído</button>                       
-                <button class="remover">Remover</button>                       
-            </div>
-          </li>
+          <Todo v-for="t in todos" :key="t.id" :todo="t"/>
         </ul>
     </main>
   </div>
 </template>
 
 <script>
-
+import Todo from './components/Todo'
 export default {
   name: 'App',
+  components: {Todo: Todo},
   data(){
     return {todos: [], todo: {checked: false}};
   },
